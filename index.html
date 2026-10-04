@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navdeep Singh Dhonsi - Guidewire Architect & Senior Java/J2EE Professional with 15+ years of enterprise IT experience">
+    <meta name="keywords" content="Guidewire, Architecture, Java, J2EE, Insurance, PolicyCenter, ClaimCenter">
+    <meta name="author" content="Navdeep Singh Dhonsi">
+    <meta name="theme-color" content="#1e40af">
+    <title>Navdeep Singh Dhonsi - Guidewire Architect & Senior Java Developer</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border-light: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-light: #0f172a;
+            --bg-white: #1e293b;
+            --text-dark: #f1f5f9;
+            --text-gray: #cbd5e1;
+            --border-light: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        :root[data-theme="dark"] header {
+            background-color: rgba(30, 41, 59, 0.95);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 0 0 1rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .hero .title {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .about {
+            background-color: var(--bg-white);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .contact-details h3 {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .experience {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-item {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .experience-company {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-period {
+            background-color: var(--bg-light);
+            color: var(--text-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-tech {
+            margin-top: 1rem;
+        }
+
+        .experience-tech h4 {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border-top: 3px solid var(--secondary);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cert-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .industries {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .industry-badge {
+            background-color: var(--bg-white);
+            padding: 2rem 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .industry-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .industry-badge h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 1rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background-color: white;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            color: var(--secondary);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease;
+            z-index: 200;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .toast.exit {
+            animation: slideOut 0.3s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .title {
+                font-size: 1.25rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .about {
+                padding: 1.5rem;
+            }
+
+            .skill-card {
+                padding: 1.5rem;
+            }
+
+            .experience-item {
+                padding: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-period {
+                width: 100%;
+            }
+
+            .toast {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+        }
+
+        @media print {
+            header,
+            .hero-cta,
+            .theme-toggle {
+                display: none;
+            }
+
+            body {
+                background-color: white;
+            }
+
+            .container,
+            .about {
+                box-shadow: none;
+                border: none;
+            }
+
+            .skill-card,
+            .experience-item,
+            .cert-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">NSD</a>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Navdeep Singh Dhonsi</h1>
+        <p class="title">Guidewire Architect & Senior Java/J2EE Professional</p>
+        <p class="tagline">15+ years of enterprise IT experience with deep specialization in Guidewire Insurance Suite</p>
+        <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="javascript:void(0)" onclick="downloadResume()" class="btn btn-secondary">Download Resume</a>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about">
+            <p>
+                Seasoned Guidewire Solution Architect with 15+ years of enterprise IT experience and 10+ years specializing in P&C insurance technology. Proven expertise in designing and implementing greenfield Guidewire PolicyCenter and ClaimCenter solutions on cloud platforms. Strong track record in cloud modernization, API-led integration leadership, and technical governance across complex enterprise environments.
+            </p>
+            <p>
+                Known for translating complex business requirements into scalable technical solutions, mentoring development teams, and driving innovation in cloud-native insurance platforms.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="javascript:void(0)" onclick="copyToClipboard('navdeep.singh06@gmail.com')">navdeep.singh06@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <a href="javascript:void(0)" onclick="copyToClipboard('(431)-777-9595')">(431)-777-9595</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Winnipeg, MB, Canada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="skills">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="competencies">
+            <div class="skill-card">
+                <h3>🔶 Guidewire Technologies</h3>
+                <div class="skill-tags">
+                    <span class="tag">Guidewire Cloud (GWCP)</span>
+                    <span class="tag">PolicyCenter</span>
+                    <span class="tag">ClaimCenter</span>
+                    <span class="tag">Guidewire APD</span>
+                    <span class="tag">Cloud APIs</span>
+                    <span class="tag">Integration Gateway</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>💻 Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="tag">Java/J2EE</span>
+                    <span class="tag">Gosu</span>
+                    <span class="tag">PL/SQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Angular</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">XML</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>🛠️ Frameworks & Platforms</h3>
+                <div class="skill-tags">
+                    <span class="tag">Spring</span>
+                    <span class="tag">Hibernate</span>
+                    <span class="tag">Jersey</span>
+                    <span class="tag">SOAP/REST</span>
+                    <span class="tag">Struts</span>
+                    <span class="tag">GWT</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>🗄️ Databases</h3>
+                <div class="skill-tags">
+                    <span class="tag">Oracle</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">DB2</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>⚙️ Tools & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="tag">Git</span>
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">CI/CD Pipelines</span>
+                    <span class="tag">Maven</span>
+                    <span class="tag">Ant</span>
+                    <span class="tag">Splunk</span>
+                    <span class="tag">IntelliJ</span>
+                    <span class="tag">Eclipse</span>
+                    <span class="tag">SoapUI</span>
+                    <span class="tag">Postman</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>🎯 Specializations</h3>
+                <div class="skill-tags">
+                    <span class="tag">Solution Architecture</span>
+                    <span class="tag">Cloud Migration</span>
+                    <span class="tag">API Design</span>
+                    <span class="tag">Technical Leadership</span>
+                    <span class="tag">Agile/Scrum</span>
+                    <span class="tag">Enterprise Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Guidewire Consultant / Architect</div>
+                        <div class="experience-company">Zurich Canada</div>
+                    </div>
+                    <span class="experience-period">Mar 2021 – Present</span>
+                </div>
+                <p>Greenfield Guidewire PolicyCenter Cloud implementation and cloud upgrade leadership. Solution architecture for enterprise insurance platform modernization.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Gosu</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Guidewire Cloud/GWCP</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">Jenkins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Application Developer</div>
+                        <div class="experience-company">The Co-Operators</div>
+                    </div>
+                    <span class="experience-period">Sep 2019 – Feb 2021</span>
+                </div>
+                <p>Digital Quote & Buy platform development and cloud upgrade participation. Full-stack development on Guidewire framework ecosystem.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Gosu</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Guidewire Framework</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Application Developer</div>
+                        <div class="experience-company">Wawanesa Mutual Insurance Company</div>
+                    </div>
+                    <span class="experience-period">May 2016 – Jan 2019</span>
+                </div>
+                <p>PolicyCenter and ClaimCenter implementations for P&C insurance operations. Core platform development and customization.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Gosu</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-company">ADP</div>
+                    </div>
+                    <span class="experience-period">Jun 2015 – Jan 2016</span>
+                </div>
+                <p>SOAP/REST web services development and enterprise integration. Microservices architecture and integration patterns.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Java/J2EE</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">Maven</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">System Analyst</div>
+                        <div class="experience-company">Mazda Motors of America</div>
+                    </div>
+                    <span class="experience-period">Aug 2013 – May 2015</span>
+                </div>
+                <p>Application redesign and enhancement. Full-stack development on enterprise web applications.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Java/J2EE</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">JSP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-company">Verio Market Place / Cloud Portal</div>
+                    </div>
+                    <span class="experience-period">Mar 2011 – Nov 2011</span>
+                </div>
+                <p>Portal framework development and web services. Cloud platform infrastructure and APIs.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">GWT</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">Maven</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Software Engineer</div>
+                        <div class="experience-company">NuViewHR</div>
+                    </div>
+                    <span class="experience-period">Jan 2009 – May 2011</span>
+                </div>
+                <p>HRIS application customization and development. Human resources platform enhancements.</p>
+                <div class="experience-tech">
+                    <h4>Technologies</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">XML</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="certifications">
+        <h2 class="section-title">Certifications & Education</h2>
+        <div class="certifications">
+            <div class="cert-card">
+                <h3>🎓 Bachelor of Technology</h3>
+                <p>Computer Science and Engineering</p>
+            </div>
+            <div class="cert-card">
+                <h3>✅ Guidewire Certified Ace</h3>
+                <p>PolicyCenter Configuration</p>
+            </div>
+            <div class="cert-card">
+                <h3>✅ Guidewire Certified Ace</h3>
+                <p>InsuranceSuite Cloud Integration</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 4rem;">Industries</h2>
+        <div class="industries">
+            <div class="industry-badge">
+                <h3>Insurance (P&C)</h3>
+            </div>
+            <div class="industry-badge">
+                <h3>Information Technology</h3>
+            </div>
+            <div class="industry-badge">
+                <h3>Business Services</h3>
+            </div>
+            <div class="industry-badge">
+                <h3>Automotive</h3>
+            </div>
+            <div class="industry-badge">
+                <h3>Web Hosting & Telecom</h3>
+            </div>
+            <div class="industry-badge">
+                <h3>Human Resources</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="contact-section" id="contact">
+            <h2>Let's Work Together</h2>
+            <p>Ready to discuss your next Guidewire project or architecture challenge? Get in touch.</p>
+            <div class="contact-buttons">
+                <a href="mailto:navdeep.singh06@gmail.com" class="contact-btn">📧 Send Email</a>
+                <a href="tel:+14317779595" class="contact-btn">📞 Call Me</a>
+                <a href="https://www.linkedin.com/in/navdeepsinghdhonsi" target="_blank" rel="noopener noreferrer" class="contact-btn">💼 LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Navdeep Singh Dhonsi. All rights reserved.</p>
+        <p>Designed and built with precision</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/navdeepsinghdhonsi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:navdeep.singh06@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`Copied: ${text}`);
+            }).catch(() => {
+                showToast('Failed to copy');
+            });
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('exit');
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // Download resume
+        function downloadResume() {
+            showToast('Resume download feature - customize with your actual resume file');
+            // Uncomment and update path when you have a resume file
+            // const link = document.createElement('a');
+            // link.href = 'resume.pdf';
+            // link.download = 'Navdeep_Singh_Dhonsi_Resume.pdf';
+            // link.click();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .experience-item, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(10px)';
+            el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
